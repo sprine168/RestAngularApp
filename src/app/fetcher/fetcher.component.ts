@@ -14,7 +14,11 @@ export class FetcherComponent implements OnInit {
   // getting api data
   private url: string = "https://jsonplaceholder.typicode.com/posts";
 
+
+  // HttpClient is the same as the XMLHttpRequest
   constructor(http: HttpClient) {
+
+    console.log("The HttpService has started");
 
     //http.get returns an observable, which is accessed by subscribe
     http.get(this.url)
@@ -24,8 +28,20 @@ export class FetcherComponent implements OnInit {
         this.data = response;
         console.log(this.data);
 
+      },
+      
+      // Runs when there is an error that happens.
+      (error) => {
+        console.log( error );
+              
+    },
+
+    // Runs once the HttpRequest has finished.
+    () => {
+        console.log("The service has completed");
       });
-  }
+ 
+    }
 
   ngOnInit() {
   }
