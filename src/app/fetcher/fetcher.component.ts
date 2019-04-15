@@ -11,7 +11,7 @@ export class FetcherComponent implements OnInit {
   // data can be any type
   data: any;
 
-  // getting api data
+  // url to retrieve api data
   private url: string = "https://jsonplaceholder.typicode.com/posts";
 
 
